@@ -1,0 +1,54 @@
+// Variables
+// Este color primario se usa como fondo en el cuerpo del documento. Puedes cambiarlo aquí para ajustar el esquema de color globalmente.
+$primary-color: #3498db;
+// Este color secundario se usa para los enlaces. Puedes modificarlo para cambiar el estilo de los enlaces en todo el sitio.
+$secondary-color: #2ecc71;
+// Esta variable define la fuente utilizada en el cuerpo del documento. Puedes agregar o cambiar las fuentes según tus preferencias.
+$font-stack: 'Helvetica, Arial, sans-serif';
+
+// Estilo general del cuerpo
+// Este bloque aplica los estilos generales al cuerpo del documento. Incluye propiedades como el fondo, la fuente y el color del texto.
+body {
+  font-family: $font-stack;
+  background-color: $primary-color;
+  color: white;
+  padding: 20px;
+}
+
+// Anidamiento de selectores
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 15px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $secondary-color;
+    // Cambia el color del enlace cuando el usuario pasa el ratón por encima, para mejorar la experiencia de usuario visualmente.
+    &:hover {
+      // La función `darken()` toma un color y lo oscurece en un porcentaje determinado. En este caso, el color secundario se oscurece un 10% para resaltar el efecto hover.
+      color: darken($secondary-color, 10%);
+    }
+  }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    @include flex-center;
+    height: 100vh;
+  }
+  @function calcular-rem($pixels) {
+    @return $pixels / 16 * 1rem;
+  }
+  
